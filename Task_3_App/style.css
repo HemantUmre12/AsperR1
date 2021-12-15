@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*, *::after, *::before {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ! Using CSS variables for easy color change(theme) */
+
+:root {
+
+    /* ! Random Eco-friendly theme */
+
+    /* --primary-bk-color--: #379683;
+    --secondary-bk-color--: #5CDB95;
+    --primary-text-color--: #8EE4AF;
+    --secondary-text-color--: #EDF5E1;
+    --theme--: #05386B; */
+
+    /* ! Original Theme */
+     
+    --primary-bk-color--: black;
+    --secondary-bk-color--: rgb(41, 39, 39);
+    --primary-text-color--: white;
+    --secondary-text-color--: rgb(216, 211, 211);
+    --theme--: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* !! Styling Scrollbar(Only visible in chrome) */
+
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--theme--);
+}
+
+/* ! Styling Navigation Bar */
+
+.nav-container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-bk-color--);
+}
+
+.nav-container > li > a {
+    display: inline-block;
+    position: relative;
+    opacity: 0.7;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--primary-text-color--);
+    margin: 0 2rem;
+    cursor: pointer;
+}
+  
+
+.logo {
+    height: 70%;
+    width: 20%;
+    margin-left: 1rem;
+    margin-right: auto;
+    background-image: url(.//png/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+/* ! Animated Hover->Underline effect */
+
+[underline-hover]:hover {
+    opacity: 1;
+}
+
+[underline-hover]:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme--);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+[underline-hover]:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* ! Styling Main Content */
+
+.main-content-container {
+    margin-top: 5rem;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 65% 35%;
+    background-color: var(--primary-bk-color--);
+}
+
+.main-content-container > div {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    text-shadow: 2px 2px 2px var(--theme--);
+    white-space: nowrap;
+    position: relative;
+    color: var(--primary-text-color--);
+    margin: 1rem;
+}
+
+.about-yourself {
+    grid-column: span 2/auto;
+    background-color: var(--secondary-bk-color--);
+}
+
+.branch {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.content {
+    color: var(--secondary-text-color--);
+}
+
+.paragraph-hyperlink {
+    text-decoration: none;
+    color: var(--theme--);
+}
+
+
+/* ! Social Media/Connect */
+
+.links {
+    margin:auto;
+    text-align: center;
+}
+
+.links > a {
+    display: inline-block;
+    margin: 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: all 400ms ease-out;
+}
+
+.links > a:hover {
+    transform: scale(1.4);
+}
+
+.instagram {
+    background-image: url(.//png/instagram.png);
+}
+.linkedin {
+    background-image: url(.//png/linkedin.png);
+}
+.twitter {
+    background-image: url(.//png/twitter.png);
+}
+.github {
+    background-image: url(.//png/github.png);
+}
+
+/* ! Styling Footer */
+
+.copyright {
+    display: grid;
+    place-items: center;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: var(--secondary-bk-color--);
+    color: var(--primary-text-color--);
+}
+
+/* ! Underline */
+
+[underline] {
+    border-bottom: 2px solid var(--theme--);
+}
+
+/* ! Vertical line */
+
+[vertical-line] {
+    padding-left: 1rem;
+    border-left: 5px solid var(--theme--);
+}
+
+/* ! For Smaller Screens */
+
+@media screen and (max-width: 600px){
+    :root {
+        font-size: 13px;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .main-content-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
